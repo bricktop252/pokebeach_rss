@@ -22,4 +22,6 @@ def generate_rss():
     return Response(fg.rss_str(pretty=True), mimetype='application/rss+xml')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 10000))  # Default fallback
+    app.run(host="0.0.0.0", port=port)
